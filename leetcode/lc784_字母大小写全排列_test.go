@@ -24,10 +24,10 @@ func TestLc784(t *testing.T) {
 func letterCasePermutation(s string) []string {
 	res := make([]string, 0)
 	path := ""
-	return backtrack784(0, res, path, s)
+	return backtrackIn784(0, res, path, s)
 }
 
-func backtrack784(index int, res []string, path string, s string) []string {
+func backtrackIn784(index int, res []string, path string, s string) []string {
 	if index == len(s) {
 		res = append(res, path)
 	} else {
@@ -36,11 +36,11 @@ func backtrack784(index int, res []string, path string, s string) []string {
 			lowerCh := strings.ToLower(string(s[index]))
 			upperPath := path + upperCh
 			lowerPath := path + lowerCh
-			res = backtrack784(index+1, res, upperPath, s)
-			res = backtrack784(index+1, res, lowerPath, s)
+			res = backtrackIn784(index+1, res, upperPath, s)
+			res = backtrackIn784(index+1, res, lowerPath, s)
 		} else {
 			char := string(s[index])
-			res = backtrack784(index+1, res, path+char, s)
+			res = backtrackIn784(index+1, res, path+char, s)
 		}
 	}
 	return res

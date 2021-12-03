@@ -20,11 +20,11 @@ func permute(nums []int) [][]int {
 	for i := range visit {
 		visit[i] = 0
 	}
-	res = backtrack046(0, res, path, nums, visit)
+	res = backtrackIn046(0, res, path, nums, visit)
 	return res
 }
 
-func backtrack046(index int, res [][]int, path []int, nums []int, visit []int) [][]int {
+func backtrackIn046(index int, res [][]int, path []int, nums []int, visit []int) [][]int {
 	if index == len(nums) {
 		temp := make([]int, index)
 		copy(temp, path)
@@ -34,7 +34,7 @@ func backtrack046(index int, res [][]int, path []int, nums []int, visit []int) [
 		if visit[i] != 1 {
 			visit[i] = 1
 			path[index] = nums[i]
-			backtrack046(index + 1, res, path, nums, visit)
+			backtrackIn046(index + 1, res, path, nums, visit)
 			visit[i] = 0
 		}
 	}
