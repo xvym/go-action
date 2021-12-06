@@ -7,6 +7,11 @@
 
 package leetcode
 
+import (
+	. "go-action/common"
+	"testing"
+)
+
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -15,9 +20,10 @@ package leetcode
  *     Right *TreeNode
  * }
  */
-func main() {
+func TestLc124(t *testing.T) {
 	maxPathSum(nil)
 }
+
 //func TestLc124(t *testing.T) {
 //
 //}

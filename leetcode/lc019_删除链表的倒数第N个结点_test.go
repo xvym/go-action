@@ -7,7 +7,10 @@
 
 package leetcode
 
-import "testing"
+import (
+	. "go-action/common"
+	"testing"
+)
 
 func TestLc019(t *testing.T) {
 
