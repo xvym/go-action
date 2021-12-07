@@ -2,4 +2,4 @@
 
 action for go
 
-[算法笔记](/leetcode/docs/算法笔记.md)
+[算法笔记](/docs/算法笔记.md)
