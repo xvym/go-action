@@ -9,6 +9,7 @@ package leetcode
 
 import (
 	"fmt"
+	"math/rand"
 	"testing"
 )
 
@@ -29,19 +30,20 @@ func quickSort(nums []int, start int, end int) {
 	}
 }
 
-func partition(nums []int, start int, end int) int {
-	i := start
-	j := end
-	pivot := nums[start]
-	for i < j {
-		for i < j && nums[j] >= pivot {
-			j--
+func partition(nums []int, left int, right int) int {
+	pivotIndex := rand.Intn(right-left+1) + left
+	nums[pivotIndex], nums[left] = nums[left], nums[pivotIndex]
+	pivot := nums[left]
+	for left < right {
+		for left < right && nums[right] >= pivot {
+			right--
 		}
-		for i < j && nums[i] <= pivot {
-			i++
+		nums[left] = nums[right]
+		for left < right && nums[left] <= pivot {
+			left++
 		}
-		nums[i], nums[j] = nums[j], nums[i]
+		nums[right] = nums[left]
 	}
-	nums[i], nums[start] = nums[start], nums[i]
-	return i
+	nums[left] = pivot
+	return left
 }
